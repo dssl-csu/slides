@@ -1,0 +1,1323 @@
+\documentclass[10pt]{beamer}
+
+
+
+\definecolor{forestgreen}{cmyk}{0.91,0,0.88,0.12}
+\definecolor{myblue}{RGB}{33,84,157}
+
+\usepackage{sidecap}
+
+\mode<presentation> {
+  \usetheme{AnnArbor}
+  \useinnertheme{circles}
+  \setbeamertemplate{bibliography item}[text]
+  \definecolor{artbasecolor}{rgb}{1,.5,0} 
+   \setbeamercolor*{palette secondary}{use=structure,fg=white,bg=myblue}
+   \setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=myblue}
+  \setbeamercolor*{palette primary}{use=structure,fg=white,bg=myblue}
+}
+
+\usepackage{amsmath,amssymb,amsfonts, amsbsy, amsthm,epsfig, graphicx,rotating, tabularx, booktabs,multirow, setspace,mathtools,bm,filecontents,biblatex,xcolor}
+\usepackage{subcaption}
+\usepackage{appendixnumberbeamer}
+\usefonttheme[onlymath]{serif}
+
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+
+
+
+% MATH -----------------------------------------------------------
+\DeclareMathOperator{\sgn}{sgn}
+\newcommand{\norm}[1]{\left\Vert#1\right\Vert}
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\Real}{\mathbb R}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\BX}{\mathbf{B}(X)}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\C}{\mathcal{C}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\F}{\mathcal{F}}
+
+\newcommand{\bfm}[1]{\ensuremath{\mathbf{#1}}}
+\def\ba{\bfm a}     \def\bA{\bfm A}     \def\cA{{\cal  A}}
+\def\bb{\bfm b}     \def\bB{\bfm B}     \def\cB{{\cal  B}}
+\def\bc{\bfm c}     \def\bC{\bfm C}     \def\cC{{\cal  C}}
+\def\bd{\bfm d}     \def\bD{\bfm D}     \def\cD{{\cal  D}}
+\def\bee{\bfm e}    \def\bE{\bfm E}     \def\cE{{\cal  E}}
+\def\bff{\bfm f}    \def\bF{\bfm F}     \def\cF{{\cal  F}}
+\def\bg{\bfm g}     \def\bG{\bfm G}     \def\cG{{\cal  G}}
+\def\bh{\bfm h}     \def\bH{\bfm H}     \def\cH{{\cal  H}}
+\def\bi{\bfm i}     \def\bI{\bfm I}     \def\cI{{\cal  I}}
+\def\bj{\bfm j}     \def\bJ{\bfm J}     \def\cJ{{\cal  J}}
+\def\bk{\bfm k}     \def\bK{\bfm K}     \def\cK{{\cal  K}}
+\def\bl{\bfm l}     \def\bL{\bfm L}     \def\cL{{\cal  L}}
+%\def\bm{\bfm m}    
+ \def\bM{\bfm M}     \def\cM{{\cal  M}}
+\def\bn{\bfm n}     \def\bN{\bfm N}     \def\cN{{\cal  N}}
+\def\bo{\bfm o}     \def\bO{\bfm O}     \def\cO{{\cal  O}}
+\def\bp{\bfm p}     \def\bP{\bfm P}     \def\cP{{\cal  P}}
+\def\bq{\bfm q}     \def\bQ{\bfm Q}     \def\cQ{{\cal  Q}}
+\def\br{\bfm r}     \def\bR{\bfm R}     \def\cR{{\cal  R}}
+\def\bs{\bfm s}     \def\bS{\bfm S}     \def\cS{{\cal  S}}
+\def\bt{\bfm t}     \def\bT{\bfm T}     \def\cT{{\cal  T}}
+\def\bu{\bfm u}     \def\bU{\bfm U}     \def\cU{{\cal  U}}
+\def\bv{\bfm v}     \def\bV{\bfm V}     \def\cV{{\cal  V}}
+\def\bw{\bfm w}     \def\bW{\bfm W}     \def\cW{{\cal  W}}
+\def\bx{\bfm x}     \def\bX{\bfm X}     \def\cX{{\cal  X}}
+\def\by{\bfm y}     \def\bY{\bfm Y}     \def\cY{{\cal  Y}}
+\def\bz{\bfm z}     \def\bZ{\bfm Z}     \def\cZ{{\cal  Z}}
+
+\newcommand{\bfsym}[1]{\ensuremath{\boldsymbol{#1}}}
+\def\btau    {\bfsym \tau}
+\def\balpha    {\bfsym \alpha}
+\def\bbeta     {\bfsym \beta}
+\def\btheta     {\bfsym \theta}
+\def\bgamma    {\bfsym \gamma}
+\def\bdelta    {\bfsym \delta}
+\def\blambda   {\bfsym {\lambda}}
+\def\bmu       {\bfsym {\mu}}
+\def\bxi       {\bfsym {\xi}}
+\def\bnu       {\bfsym {\nu}}
+\def\bsigma    {\bfsym {\sigma}}
+\def\bSigma    {\bfsym {\Sigma}}
+\def\beps      {\bfsym \varepsilon}
+\def\bpi       {\bfsym \pi}
+\def\bsi{\boldsymbol{\mathrm{i}}}  
+\def\T {\top}
+
+%\def\biblio{\bibliographystyle{apalike}\bibliography{bibliography}}
+
+\newtheorem{algorithm}{Algorithm}[section]
+\newtheorem{defn}{Definition}[section]
+\newtheorem{cd}{Condition}[section]
+
+\def\bmD{\boldsymbol{\mathcal{D}}}
+
+\DeclareMathOperator{\argmin}{argmin}
+\DeclareMathOperator{\argmax}{argmax}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\rss}{RSS}
+%\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\cov}{cov}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\SE}{SE}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Dev}{Dev}
+\DeclareMathOperator{\logit}{logit}
+
+\title[Integrative Group Factor Model for Variable Clustering]
+{\bf  \large Integrative Group Factor Model for Variable Clustering with Dependent Data: Optimal Recovery and Algorithms}
+
+
+ 
+
+\author[L. Zhang]{\bf \normalsize  \texorpdfstring{\color{blue}}{} Lyuou Zhang}
+%Joint with Wen Zhou (CSU) and Haonan Wang (CSU)\vspace{0.5cm}
+\institute[Colorado State University]
+  {\color{forestgreen}\bf \normalsize  Department of Statistics \\ Colorado State University}
+ % \date[\today]{\today \\\vspace{1.25cm} }
+
+%\date[January 28, 2019]{January 28, 2019 \\ \bigskip\bigskip{\color{blue} \normalsize \bf Department of Statistics\\ University of Connecticut\\ Storrs, CT}}
+
+\date[June 29,2020 ]{Ph.D. Defense \\ 2020-6-29 \\ \bigskip  Advisor: Wen Zhou \\ Co-Advisor: Haonan Wang
+}
+ 
+%\bf 2018 Symposium on Modern Statistics\\  Xiamen University, China}}
+
+\setbeamersize{text margin left=10mm,text margin right=10mm} 
+\setbeamertemplate{section in toc}[ball]
+
+\setbeamercolor{itemize item}{fg=red}
+\setbeamercolor{itemize subitem}{fg=blue}
+\setbeamercolor{itemize subsubitem}{fg=cyan}
+
+\setbeamertemplate{itemize item}[square]
+\setbeamertemplate{itemize subitem}[ball]
+\setbeamertemplate{itemize subsubitem}[triangle]
+
+\newcounter{sauvegardeenumi}
+\newcommand{\asuivre}{\setcounter{sauvegardeenumi}{\theenumi}}
+\newcommand{\suite}{\setcounter{enumi}{\thesauvegardeenumi}}
+
+
+ 
+\makeatletter
+\newcommand\notsotiny{\@setfontsize\notsotiny\@vipt\@viipt} 
+\makeatother
+
+
+
+
+\begin{document}
+
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+
+
+\begin{frame}
+
+\maketitle
+
+\end{frame}
+
+%=========================== Chapters =======================================%
+
+\begin{frame}
+\centering
+\begin{tikzpicture}[sibling distance=15em,
+  every node/.style = {shape=rectangle, rounded corners,
+    draw, align=center,
+    top color=white, bottom color=blue!20}]]
+  \node {\large Chapter 2}
+    child { node {\large Chapter 3} }
+    child { node {\large Chapter 4}};
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+\frametitle{Chapter 2: Spectral Decomposition of Large Gram-Type Matrices}
+\begin{enumerate}
+ 
+\item<1- > \alt<1>{\color{blue} }{\color{gray} } Study the non-asymptotic properties of the spectral decomposition of large Gram-type matrices for data governed by a factor model.
+\item<2- > \alt<2>{\color{blue} }{\color{gray} } Relax the assumption upon latent factors in the factor model.
+\item<3- > \alt<3>{\color{blue} }{\color{gray} } Establish the exponential tail bound for the deviation between the empirical and population eigenvectors to the Gram matrices.
+\item<4- > \alt<4>{\color{blue} }{\color{gray} } Obtain the non-asymptotic tail bound of the ratio between eigenvalues of the sample covariance matrix.
+\item<5- > \alt<5>{\color{blue} }{\color{gray} } Show the non-asymptotic property for eigenvalue-ratio test of the sample covariance matrix.
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Chapter 3: Estimation and Inference of Semiparametric Factor Model (Preliminary Exam)}
+\begin{enumerate}
+\item<1- > \alt<1>{\color{blue} }{\color{gray} }   Propose a  new heteroscadasticity model with latent semiparametric factors to model multivariate times series with growing dimensions. 
+\item<1- > \alt<1>{\color{blue} }{\color{gray} }  Develop a computationally-straightforward two-step estimation procedure for the regression component based on a projection-based estimates on the latent nonparametric loading and factor processes.
+\item<2- > \alt<2>{\color{blue} }{\color{gray} }  Provide a careful concentration results on the projection-based estimators to obtain the efficiency of the two-step estimation for the regression component.
+\item<2- > \alt<2>{\color{blue} }{\color{gray} }  Develop inference procedures for both the regression component and the latent loadings, which can be employed to diagnose the heteroscadasticity.
+
+\item<3- > \alt<3>{\color{blue} }{\color{gray} }  Propose  data-drive approaches to estimate unknown number of latent factor processes.
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}[plain,noframenumbering]
+\begin{spacing}{1.25}
+\begin{center}
+{ \huge  \bf Integrative Group Factor Model}
+\\\bigskip\bigskip
+{\large\bf (Chapter 4)}
+\end{center}
+\end{spacing}
+\end{frame}
+
+%=========================== Intro =======================================%
+\section{Introduction}
+\frame{\tableofcontents[currentsection]}
+ 
+
+
+%\begin{frame}[plain,noframenumbering]
+%\begin{spacing}{1.25}
+%\begin{center}
+%{\color{blue} \Huge  \bf Introduction}
+%\end{center}
+%\end{spacing}
+%\end{frame}
+
+\begin{frame}
+\frametitle{Data Revolution}
+\begin{spacing}{1.25}  
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray} }  We encounter large scale data with potential temporal dependence from multiple resources or multiple modalities. \par
+\item<1- > \alt<1>{\color{black} }{\color{gray} } Such a new data structure often bears similarity as well as uniqueness among variables, which results in multiple or diverging numbers of covariance structures. \par
+\item<1- > \alt<1>{\color{black} }{\color{gray} } By combining diverse but usually complementary information from different covariance structures, an integrative analysis of large scale data is often beneficial for understanding the underlying structures. \par
+\end{itemize}
+\end{spacing}
+\end{frame}
+
+\begin{frame}
+\frametitle{Data Generation}
+\begin{tikzpicture}
+
+\filldraw[fill=gray, draw=black, line width=1mm] (0, 0) rectangle +(3, 5) node at (1.5,-0.5) {Samples};
+\draw[draw=black, line width=0.25mm] (0,4) -- (3,4) node at (-0.8,4.5) {Cluster 1} node at (-0.8,1) {Cluster 3};
+\draw[draw=black, line width=0.25mm] (0,2) -- (3,2) node at (-0.8,3) {Cluster 2};
+
+\draw[draw=black, line width=1mm] (4, 0) rectangle +(2, 5) node at (3.5,2.5) {$\approx$};
+\filldraw[fill=gray, draw=black, line width=1mm] (4, 0) rectangle +(0.5, 5) node[text width=1cm,align=center] at (4.2,-0.8) {Active \\ in all \\ clusters};
+\filldraw[fill=gray, draw=black, line width=1mm] (4.5, 4) rectangle +(0.5, 1) node[text width=1cm,align=center] at (5.5,-0.8) {Active \\ in a \\ cluster};
+\filldraw[fill=gray, draw=black, line width=1mm] (5, 2) rectangle +(0.5, 2);
+\filldraw[fill=gray, draw=black, line width=1mm] (5.5, 0) rectangle +(0.5, 2);
+
+\draw[draw=black, line width=0.25mm] (4,4) -- (6,4) ;
+\draw[draw=black, line width=0.25mm] (4,2) -- (6,2) ;
+\draw[draw=black, line width=0.25mm] (5,0) -- (5,5) ;
+\draw[draw=black, line width=0.25mm] (5.5,0) -- (5.5,5) ;
+
+\filldraw[fill=gray, draw=black, line width=1mm] (6.5, 3) rectangle +(3, 2) node at (8,-0.5) {Latent factors};
+\end{tikzpicture} 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Large Scale Data}
+
+\begin{itemize}
+
+\item<1- > \alt<1>{\color{black} }{\color{gray} } To learn the covariance structure from the large scale data, a number of statistical methods have recently been developed.
+\begin{spacing}{0.9}
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray} } High-dimensional covariance estimation (Fan et al.,
+2011; Wang and Fan, 2017; Cai et al., 2016).
+
+\item<1- > \alt<1>{\color{black} }{\color{gray} } Large dimensional static factor model (Stock and Watson, 1998; Forni et al., 2000).
+
+\end{itemize}
+\end{spacing}
+%\vspace{-0.65cm}
+
+\item<2- > \alt<2>{\color{black} }{\color{gray} } To allow for different structures, if clustering assignments are known,
+\begin{spacing}{0.9}
+\begin{itemize}
+\item<2- > \alt<2>{\color{black} }{\color{gray} } Canonical correlation analysis (CCA) (Thompson, 1984, 2005).
+
+\item<2- > \alt<2>{\color{black} }{\color{gray} } inter-battery factor analysis (Browne, 1980)
+
+\item<2- > \alt<2>{\color{black} }{\color{gray} } group factor analysis (Klami et al., 2014)
+
+\end{itemize}
+\end{spacing}
+\item<3- > \alt<3>{\color{black} }{\color{gray} } What if the clustering assignments are unknown?
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Challenges }
+\begin{spacing}{1.25}  
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray} } Large scale data are often correlated, both cross-sectionally and temporally.
+\item<2- > \alt<2>{\color{black} }{\color{gray} } To deal with the cross-sectional correlation, a popular approach is variable clustering.
+\item<2- > \alt<2>{\color{black} }{\color{gray} } Variable clustering is of great challenge for large scale data.
+\begin{itemize}
+\item<3- > \alt<3>{\color{black} }{\color{gray} } Even a single group contains more variables than the sample size.
+\item<3- > \alt<3>{\color{black} }{\color{gray} } Difficulty in estimating covariance structure.
+\item<3- > \alt<3>{\color{black} }{\color{gray} } Similarities
+as well as unique characteristics among variables.
+\end{itemize}
+\item<4- > \alt<4>{\color{black} }{\color{gray} } What if the data are temporally dependent?
+\end{itemize}
+\end{spacing}
+\end{frame}
+
+\begin{frame}
+\frametitle{Variable Clustering}
+
+\begin{itemize}
+
+\item<1- > \alt<1>{\color{black} }{\color{gray} } Data-based methods are popular in variable clustering.
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray} } {\it K-means} (MacQueen et al. (1967)).
+\item<1- > \alt<1>{\color{black} }{\color{gray} } {\it K-medoids} (Kaufman and Rousseeuw (2009)).
+\item<1- > \alt<1>{\color{black} }{\color{gray} } Hierarchical clustering (Johnson (1967)).
+\item<1- > \alt<1>{\color{black} }{\color{gray} } Spectral clustering (Ng et al., 2002; Von Luxburg, 2007).
+\end{itemize}
+\item<2- > \alt<2>{\color{black} }{\color{gray} } Statistical properties are not clear for data-based methods.
+\item<3- > \alt<3>{\color{black} }{\color{gray} } Model-based variable clustering is studied by Bunea et al. (2020).
+\begin{itemize}
+\item<3- > \alt<3>{\color{black} }{\color{gray} } There is little work for temporally dependent data.
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Our Contributions}
+\begin{enumerate}
+ 
+\item<1- > \alt<1>{\color{blue} }{\color{gray} }   Consider a flexible integrative group factor model built upon the latent factors extracted from the large scale data.
+\item<2- > \alt<2>{\color{blue} }{\color{gray} }  Propose a computationally fast algorithm to recover clustering assignments and gives its upper bound of clustering recovery rate.
+\item<3- > \alt<3>{\color{blue} }{\color{gray} }  Show the minimax optimality of clustering recovery rate.
+\item<3- > \alt<3>{\color{blue} }{\color{gray} } Find the precise demarcation for the {\it Region of Possibility with Guarantees}, {\it Region of Possibility with unknown Guarantees} and {\it Region of Impossibility} in a two-dimensional phase space.
+\end{enumerate}
+\end{frame}
+
+%=========================== Model and Methodology =======================================%
+\section{Integrative Group Factor Model}
+\frame{\tableofcontents[currentsection]}
+%\begin{frame}[plain,noframenumbering]
+%\begin{spacing}{1.25}
+%\begin{center}
+%{\color{blue} \Huge  \bf Integrative Group Factor Model}
+%\end{center}
+%\end{spacing}
+%\end{frame}
+
+ 
+\begin{frame}
+\frametitle{Variable Clustering with Dependent Data}
+We consider a $p$-dimensional multivariate time series $y_{it}$.
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray} } $y_{it}$ is an observation from the $i$th subject at time $t$.
+\item<1- > \alt<1>{\color{black} }{\color{gray} } The $p$ dimensions are split into $m$ disjoint groups by clustering assignment $\bz=(z_1,\dots,z_p)\in\{1,\dots,m\}^p$ as $\mathcal{V}=\mathcal{V}^{(1)}\cup\dots\cup\mathcal{V}^{(m)}$.
+\begin{itemize}
+\item<2- > \alt<2>{\color{black} }{\color{gray} } Two curves of time series $y_{it}$ and $y_{jt}$ in two different clusters are ``weakly" correlated in the sense that there exists a process $\bff_t$ satisfying that $\cov(y_{it},y_{jt}|\bff_t)=0$ and $\Var(y_{it}|\bff_t)\ne0$.
+\item<2- > \alt<2>{\color{black} }{\color{gray} } The number of curves in the $j$th cluster $p_j=|\mathcal{V}^{(j)}|$ satisfy the following condition
+\begin{cd}[Condition 1]
+For each $j=1,\dots,m$, $p_j\asymp p$.
+\end{cd}
+\end{itemize}
+\end{itemize} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Approximate Factor Model}
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray} }
+An approximate factor model is
+\begin{align*}
+y_{it}=a_{i1}f_{t1}+\cdots+a_{ir}f_{tr}+u_{it},
+\end{align*}
+where 
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray} }  $\ba_i=(a_{i1},\ldots, a_{ir})^{\T}$ are unknown loadings.
+\item<2- > \alt<2>{\color{black} }{\color{gray} }  $\bff_t=(f_{t1},\dots,f_{tr})^{\T}$ is a $r$-dimensional process with zero mean and finite variances.
+\item<2- > \alt<2>{\color{black} }{\color{gray} }   $u_{it}$ is an error process with zero mean and independent of $\bff_t$.
+\end{itemize}
+\item<3- > \alt<3>{\color{black} }{\color{gray} } The approximate factor model allows $u_{it}$ to be cross-sectionally dependent.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Integrative Group Factor Model}
+An integrative group factor model (iGFM) is 
+\begin{align*}
+(y_{it}|z_i=j)=a_{i1}f_{t1}^{(0)}+\cdots+a_{ir_0}f_{tr_0}^{(0)}+b_{i1}f^{(j)}_{i1}+\cdots+b_{ir_{j}}f^{(j)}_{ir_{j}}+u_{it} 
+\end{align*} 
+where 
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray} }  $z_1,\dots,z_p\in\{1,\dots,m\}$ are clustering assignments.
+\item<1- > \alt<1>{\color{black} }{\color{gray} }  $\ba_i=(a_{i1},\ldots, a_{ir})^{\T}$ and $\bb_i=(b_{i1},\ldots, b_{ir_{z_i}})^{\T}$ are unknown loadings.
+\item<2- > \alt<2>{\color{black} }{\color{gray} } Common factors: $\bff_t^{(0)}=(f^{(0)}_{t1},\dots,f^{(0)}_{tr_0})^{\T}$ is a $r_0$-dimensional process with zero mean and finite variances.
+\item<2- > \alt<2>{\color{black} }{\color{gray} } Unique factors $\bff_t^{(j)}=(f^{(j)}_{t1},\dots,f^{(j)}_{tr_j})^{\T}$ is a $r_j$-dimensional process with zero mean and finite variances.
+\item<2- > \alt<2>{\color{black} }{\color{gray} }   $u_{it}$ is an error process with zero mean and independent of $\bff_t^{(0)},\bff_t^{(1)},\dots,\bff_t^{(m)}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Identifiability and Identification}
+Let $\by^{(j)}_t=(y_{it})_{z_i=j}$, $\bA_j=(\ba_i)_{z_i=j}$, $\bB_j=(\bb_i)_{z_i=j}$, and $\bu^{(j)}_t=(u_{it})_{z_i=j}$, 
+the model reads
+$$
+\by^{(j)}_t=\bA_j\bff_t^{(0)}+\bB_j\bff^{(j)}_t+\bu^{(j)}_t.
+$$
+\begin{cd}[Chamberlain and Rothschild (1982), Lam and Yao (2012)]
+\begin{enumerate} 
+\item $\bff_t^{(0)},\bff_t^{(1)},\dots,\bff_t^{(m)}$ and $\bu$ are uncorrelated;
+\item $f^{(j)}_{t1},\dots,f^{(j)}_{tr_j}$ are uncorrelated with each other and have zero mean and unit variance;
+\item $u_{1t},\dots,u_{pt}$ have zero mean and finite variance.
+\end{enumerate}
+\end{cd}
+\end{frame}
+
+\begin{frame}
+\frametitle{Integrative Group Factor Model}
+Let $\by_t=(\by^{(1)\T}_t,\dots,\by^{(1)\T}_t)^{\T}$, $\bff_t=(\bff_t^{(0)\T},\bff_t^{(1)\T},\dots,\bff_t^{(m)\T})^{\T}$, $\bu_t=(\by^{(1)\T}_t,\dots,\bu^{(1)\T}_t)^{\T}$
+\begin{align*}
+\bC=\begin{bmatrix}
+\bA_1 & \bB_1 & & \\
+\vdots & & \ddots & \\
+\bA_m & & & \bB_m
+\end{bmatrix},
+\end{align*} 
+the model reads
+\begin{align*}
+\by_t=\bC\bff_t+\bu_t,
+\end{align*}
+\begin{itemize}
+\item<2- > \alt<2>{\color{black} }{\color{gray} } $\bff_t^{(0)}$ are the common factors and $\bA_1,\dots,\bA_m$ are their loadings.
+\item<2- > \alt<2>{\color{black} }{\color{gray} } $\bff_t^{(j)}$ are the unique factors and $\bB_j$ are their loadings.
+\item<3- > \alt<3>{\color{black} }{\color{gray} }  Consider $T$ replicates $(\by_1,\dots,\by_T):=\bY$, which are not necessarily independent, so the  {\bf \color{blue}realization} of the proposed model is
+$$
+\bY=\bC\bF^{\T}+\bU.
+$$ 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Identifiability and Identification}
+\begin{cd}[Condition 2]
+\begin{enumerate}
+\item There exist positive constant $R$ such that $r_j\le R$ for each $j=0,1,\dots,m$.
+\item For each $j=1,\dots,m$, $\bA_j^{\T}\bA_j$ and $\bB_j^{\T}\bB_j$ are diagonal matrices with non-zero distinct entries and $\bA_j^{\T}\bB_j=\bm{0}$. There exist constants $d_1,d_2>0$ such that 
+\begin{itemize}
+\item $d_2/d_1<m$;
+\item $d_1\le\lambda_{\min}(p^{-1}\bA_j^{\T}\bA_j)\le\lambda_{\max}(p^{-1}\bA_j^{\T}\bA_j)\le d_2$;
+\item $d_1\le\lambda_{\min}(p^{-1}\bB_j^{\T}\bB_j)\le\lambda_{\max}(p^{-1}\bB_j^{\T}\bB_j)\le d_2$.
+\end{itemize}
+\end{enumerate}
+\end{cd}
+\pause
+\begin{itemize}
+\item<2- > \alt<2>{\color{black} }{\color{gray} }  The total number of factors $K=\sum_{j=0}^mr_j$ is bounded.
+%\item Under the identifiability condition, with probability at least $1-e^{-s}$, $\Vert T^{-1}\bF^{\T}\bF-\bI_k\Vert_{\mathbb{F}}^2\lesssim T^{-1}s$.
+%\item We can identify $\widetilde{\bC}\bH$ and $\bF\bH$ for some $K\times K$ orthogonal matrix $\bH$ with $\bH=\bI+o(\min(n,T)^{-1})$.
+\item<2- > \alt<2>{\color{black} }{\color{gray} }  The common factors and unique factors are distinguishable.
+\end{itemize}
+\end{frame}
+
+
+%=========================== Difficulty of Clustering Recovery =======================================%
+\section{Difficulty of Clustering Recovery}
+\frame{\tableofcontents[currentsection]}
+%\begin{frame}[plain,noframenumbering]
+%\begin{spacing}{1.25}
+%\begin{center}
+%{\color{blue} \Huge  \bf Difficulty of Clustering Recovery}
+%\end{center}
+%\end{spacing}
+%\end{frame}
+
+\begin{frame}
+\frametitle{Hamming Distance}
+The $0$-$1$ loss function based on the Hamming distance for recovering group labels $\widehat{\bz}$ is defined as
+\begin{align*}
+L(\widehat{\bz},\bz)=\inf_{\bm{\Pi}\in\mathcal{S}_m}\left[\frac1p\sum_{i=1}^p\cI\{\bm{\Pi}(\widehat{z}_i)\ne z_i\}\right].
+\end{align*}
+where 
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray} }  $\mathcal{S}_m$ is the set of all permutations of $\{1,\dots,m\}$.
+\item<2- > \alt<2>{\color{black} }{\color{gray} } The cluster structure is invariant to the permutations of label symbols.
+\item<2- > \alt<2>{\color{black} }{\color{gray} } The minimization over all permutations avoids the error from label switching.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kendall's Tau Distance}
+Alternatively, another loss function based on normalized
+Kendall's tau distance is defined as
+\begin{align*}
+L_K(\widehat{\bz},\bz)=\frac{2}{p(p-1)}\sum_{i<i'}\mathcal{I}&\left[\left\{(\widehat{z}_i<\widehat{z}_{i'})\wedge(z_i>z_{i'})\right\}\right.\\
+&\quad\left.\vee\left\{(\widehat{z}_i>\widehat{z}_{i'})\wedge(z_i<z_{i'})\right\}
+\right].
+\end{align*}
+\begin{itemize}
+\item<2- > \alt<2>{\color{black} }{\color{gray} } The summation is in fact the minimum number of pairwise adjacent transpositions converting the inverse mapping $\widehat{\bz}^{-1}$ into $\bz^{-1}$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Kendall's Tau Distance}
+
+\begin{tikzpicture}
+\draw[draw=black,line width=1mm] (0,0) rectangle +(6, 1) node at (-0.5,.5) {$\bz$} node at (8,0.5) {$L(\widehat{\bz},\bz)=0.33$};
+\fill[red!20, pattern color=red ,  opacity=0.95] (0,0) rectangle +(2, 1);
+\fill[blue!20, pattern color=blue ,  opacity=0.95] (2,0) rectangle +(2, 1);
+\fill[yellow!20, pattern color=yellow ,  opacity=0.95] (4,0) rectangle +(2, 1);
+\foreach \x in {0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5}
+\draw[draw=black, line width=0.25mm] (\x,0) -- (\x,1) ;
+\end{tikzpicture} 
+
+\begin{tikzpicture}
+\draw[draw=black,line width=1mm] (0,0) rectangle +(6, 1) node at (-0.5,.5) {$\widehat{\bz}$} node at (8,0.5) {$L_K(\widehat{\bz},\bz)=0.24$};
+\fill[red!20, pattern color=red ,  opacity=0.95] (0,0) rectangle +(1, 1);
+\fill[blue!20, pattern color=blue ,  opacity=0.95] (1,0) rectangle +(1, 1);
+\fill[red!20, pattern color=red ,  opacity=0.95] (2,0) rectangle +(1, 1);
+\fill[blue!20, pattern color=blue ,  opacity=0.95] (3,0) rectangle +(1, 1);
+\fill[yellow!20, pattern color=yellow ,  opacity=0.95] (4,0) rectangle +(2, 1);
+\foreach \x in {0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5}
+\draw[draw=black, line width=0.25mm] (\x,0) -- (\x,1) ;
+\end{tikzpicture} 
+
+\pause
+\bigskip
+
+\begin{tikzpicture}
+\draw[draw=black,line width=1mm] (0,0) rectangle +(6, 1) node at (-0.5,.5) {$\bz$} node at (8,0.5) {$L(\widehat{\bz},\bz)=0.33$};
+\fill[red!20, pattern color=red ,  opacity=0.95] (0,0) rectangle +(1, 1);
+\fill[blue!20, pattern color=blue ,  opacity=0.95] (1,0) rectangle +(1, 1);
+\fill[yellow!20, pattern color=yellow ,  opacity=0.95] (2,0) rectangle +(1, 1);
+\fill[red!60, pattern color=red  ,  opacity=0.95] (3,0) rectangle +(1, 1);
+\fill[blue!60, pattern color=blue ,  opacity=0.95] (4,0) rectangle +(1, 1);
+\fill[yellow!60, pattern color=yellow ,  opacity=0.95] (5,0) rectangle +(1, 1);
+\foreach \x in {0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5}
+\draw[draw=black, line width=0.25mm] (\x,0) -- (\x,1) ;
+\end{tikzpicture} 
+
+\begin{tikzpicture}
+\draw[draw=black,line width=1mm] (0,0) rectangle +(6, 1) node at (-0.5,.5) {$\widehat{\bz}$} node at (8,0.5) {$L_K(\widehat{\bz},\bz)=0.12$};
+\fill[red!20, pattern color=red ,  opacity=0.95] (0,0) rectangle +(0.5, 1);
+\fill[blue!20, pattern color=blue ,  opacity=0.95] (0.5,0) rectangle +(0.5, 1);
+\fill[red!20, pattern color=red ,  opacity=0.95] (1,0) rectangle +(0.5, 1);
+\fill[blue!20, pattern color=blue ,  opacity=0.95] (1.5,0) rectangle +(0.5, 1);
+\fill[yellow!20, pattern color=yellow ,  opacity=0.95] (2,0) rectangle +(1, 1);
+\fill[red!60, pattern color=red  ,  opacity=0.95] (3,0) rectangle +(0.5, 1);
+\fill[blue!60, pattern color=blue ,  opacity=0.95] (3.5,0) rectangle +(0.5, 1);
+\fill[red!60, pattern color=red  ,  opacity=0.95] (4,0) rectangle +(0.5, 1);
+\fill[blue!60, pattern color=blue ,  opacity=0.95] (4.5,0) rectangle +(0.5, 1);
+\fill[yellow!60, pattern color=yellow ,  opacity=0.95] (5,0) rectangle +(1, 1);
+\foreach \x in {0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5}
+\draw[draw=black, line width=0.25mm] (\x,0) -- (\x,1) ;
+\end{tikzpicture} 
+
+
+\begin{itemize}
+\item<3- > \alt<3>{\color{black} }{\color{black} } 
+The Kendall's tau distance is more tolerant to the case where variables in the same cluster are simultaneously mis-clustered into different clusters.
+\item<4- > \alt<4>{\color{black} }{\color{gray} } As number of clusters increases, Kendall's tau distance always decreases.
+%\item<2- > \alt<2>{\color{black} }{\color{gray} } We will use Hamming distance in the rest of this work.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Minimax Lower Bound of Group Recovery}
+\begin{theorem}[Minimax Lower Bound of Group Recovery]
+{\small Let the parameter space be
+{\footnotesize \begin{align*}
+(\mathcal{Z},\mathcal{C})=\left\{\bz\in\{1,\dots,m\}^p,
+\bC=\{c_{ik}\}_{i,k=1}^{p,K}\in\mathbb{R}^{p\times K}:\right.\\
+\left.p_j(\bz)\asymp p,c_{ik}=0\mbox{ for } k\notin\{1+\sum_{\ell=0}^{j-1}r_j,\dots,\sum_{\ell=0}^{j}r_j\}\mbox{ if }z_i=j\right\}.\end{align*}
+}
+Further, let $D_A^2=\max_j\lambda_{\max}(p^{-1}\bA_j^{\T}\bA_j)$, $d_B^2=\min_j\lambda_{\min}(p^{-1}\bB_j^{\T}\bB_j)$ and define the signal-noise ratio as $\theta=(D_A^2r_0+d_B^2\min_jr_j)^{-1}d_B^2r_0\max_jr_j$. Under Conditions 1 and 2, we have
+\begin{align*}
+\inf_{\widehat{\bz}}\sup_{\bz\in\mathcal{Z},\bC\in\mathcal{C}}\mathbb{E}\{L(\widehat{\bz},\bz)\}\ge  \frac{\{\log^2(p/4)+\log^2(2)\}m}{32\theta p\log(p/4)T}\wedge\frac{1}{64},
+\end{align*}
+where the infimum is taken over all label estimators $\widehat{\bz}$.
+}
+\end{theorem}
+\end{frame}
+
+
+%=========================== Methodology for Clustering =======================================%
+\section{Methodology for Clustering}
+\frame{\tableofcontents[currentsection]}
+%\begin{frame}[plain,noframenumbering]
+%\begin{spacing}{1.25}
+%\begin{center}
+%{\color{blue} \Huge  \bf Methodology for Clustering}
+%\end{center}
+%\end{spacing}
+%\end{frame}
+
+\begin{frame}
+\frametitle{Integrative Group Factor Model}
+Considering $T$ replicates $(\by_1,\dots,\by_T):=\bY$, the model reads
+$$
+\bY=\bC\bF^{\T}+\bU,
+$$ 
+where
+\begin{align*}
+\bC=\begin{bmatrix}
+\bA_1 & \bB_1 & & \\
+\vdots & & \ddots & \\
+\bA_m & & & \bB_m
+\end{bmatrix},
+\end{align*} 
+\begin{itemize}
+\item $\bA_1,\dots,\bA_m$ are loadings of common factors.
+\item $$\bB_1,\dots,\bB_m$$ are loadings of unique factors.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Estimating Latent Factors and Loadings}
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray}}  The $K$ latent factors consist of $r_0$ common factors and $K-r_0$ unique factors.
+
+\item<2- > \alt<2>{\color{black} }{\color{gray}}   A method to estimate $\bC$ and $\bF$.
+\begin{defn}[Estimators of $\bF$ and $\bC$]
+\begin{enumerate} 
+\item<2- > \alt<2>{\color{black} }{\color{gray}}   Let the columns of $\widehat{\bF}/\sqrt{T}$ be the eigenvectors corresponding to the first $K$ largest eigenvalues of the $T\times T$ matrix $\bY^{\T}\bY$;
+\item<2- > \alt<2>{\color{black} }{\color{gray}}  Let $\widehat{\bC}=\bY\widehat{\bF}/T$.
+\end{enumerate}
+\end{defn}
+
+\item<3- > \alt<3>{\color{black} }{\color{gray}} 
+{\color{blue} \bf Key idea:} the identification condition ensures the separation between common factors and unique factors.
+
+\item<3- > \alt<3>{\color{black} }{\color{gray}} The first $r_0$ columns of $\widehat{\bF}$ and $\widehat{\bC}$ are the estimator of unique factors and their loadings. 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Data Driven Recovery of Clustering Assignments}
+\centering
+\resizebox{9.5cm}{!}{%
+\begin{tikzpicture}
+\draw[draw=black, line width=1mm] (0, 0) rectangle +(3, 5) ;
+\fill[fill=gray] (0, 4) rectangle +(1, 1) node[text width=4cm,align=center] at (1.5,-0.8) {Estimated loading matrix \\ $\widehat{\bB}=\{\widehat{b}_{ik}\}_{i,k}^{p,K-r_0}$ \\ excluding common factors} node at (4,2.5) {$\xrightarrow[\tau]{thresholding}$};
+\fill[fill=gray] (1, 2) rectangle +(1, 2);
+\fill[fill=gray] (2, 0) rectangle +(1, 2);
+\fill[fill=lightgray] (0, 0) rectangle +(1, 4);
+\fill[fill=lightgray] (1, 0) rectangle +(1, 2);
+\fill[fill=lightgray] (1, 4) rectangle +(1, 1);
+\fill[fill=lightgray] (2, 2) rectangle +(1, 3);
+
+\draw[draw=black, line width=1mm] (5, 0) rectangle +(3, 5)  node at (9,2.5) {$\xrightarrow[across\; rows]{similarity}$};
+\filldraw[fill=gray, draw=black, line width=1mm] (5, 4) rectangle +(1, 1) node[text width=4cm,align=center] at (7,-0.8) {Indicator matrix \\ $\widehat{\bI}=\{\mathcal{I}(|\widehat{b}_{ik}|>\tau)\}_{i,k}^{p,K-r_0}$};
+\filldraw[fill=gray, draw=black, line width=1mm] (6, 2) rectangle +(1, 2);
+\filldraw[fill=gray, draw=black, line width=1mm] (7, 0) rectangle +(1, 2);
+
+\filldraw[fill=gray, draw=black, line width=1mm] (10, 0) rectangle +(1, 5) node[text width=1cm,align=center] at (10.2,-0.8) {Estimated \\ clusering \\ assignments};
+\draw[draw=black, line width=0.25mm] (10,4) -- (11,4) node at (11.8,4.5) {Cluster 1} node at (11.8,1) {Cluster 3};
+\draw[draw=black, line width=0.25mm] (10,2) -- (11,2) node at (11.8,3) {Cluster 2};
+\end{tikzpicture}
+}
+
+\begin{itemize}
+\item<2- > \alt<2>{\color{black} }{\color{gray}} The computation complexity of the algorithm is $O(pK)$.
+\end{itemize}
+
+
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{Data Driven Recovery of Clustering Assignments}
+%\begin{itemize}
+%\item<1- > \alt<1>{\color{black} }{\color{gray}}  For $\widehat{\bB}=\diag(\bB_1,\dots,\bB_m)$ being the $r_0+1$th to $K$th columns of $\widehat{\bC}$.
+%\begin{itemize}
+%\item<1- > \alt<1>{\color{black} }{\color{gray}}  Let $\tau=\delta\log\{\log^{-1}(p)pT\}(T^{-1/2}\sqrt{\log(p)}+p^{-1/2})$. For $k=1,\dots,K-r_0$, let $\widehat{\bi}_k=(\mathcal{I}(|\widehat{b}_{1k}|>\tau),\dots,\mathcal{I}(|\widehat{b}_{pk}|>\tau)^{\T}$ and $\widehat{\bI}=(\widehat{\bi}_1,\dots,\widehat{\bi}_{K-r_0})=:\{\widehat{i}_{ik}\}_{i=1,k=1}^{p,K-r_0}$. Denote the rows of $\widehat{\bI}$ as $\widehat{\bsi}_1,\dots,\widehat{\bsi}_p$ and the $k$th element of $\widehat{\bsi}_1$ as $\widehat{\bsi}_1(k)$.
+%
+%\item<2- > \alt<2>{\color{black} }{\color{gray}}   If there exists $k$ such that $\widehat{\bsi}_1(k)=\widehat{\bsi}_2(k)=1$, let $\widehat{z}_1=\widehat{z}_2=1$ and $\widehat{\bsi}_{(1)}=\widehat{\bsi}_1+\widehat{\bsi}_2$. Else, let $\widehat{z}_1=1$, $\widehat{z}_2=2$, $\widehat{\bsi}_{(1)}=\widehat{\bsi}_1$ and $\widehat{\bsi}_{(2)}=\widehat{\bsi}_2$.
+%
+%\item<3- > \alt<3>{\color{black} }{\color{gray}}  If there exists $j$ and $k$ such that $\widehat{\bsi}_3(k)\ne0$ and $\widehat{\bsi}_{(j)}(k)\ne0$, let $\widehat{z}_3=j$ and $\widehat{\bsi}_{(j)}=\sum_{i:z_i=j}\widehat{\bsi}_i$. Else, let $\widehat{z}_3=\max_{i<3}\widehat{z}_{i}+1$ and $\widehat{\bsi}_{(\widehat{z}_3)}=\widehat{\bsi}_3$.
+%
+%\item<4- > \alt<4>{\color{black} }{\color{gray}} Repeat Step 3 for $i=4,\dots,p$.
+%
+%\end{itemize}
+%
+%\item<5- > \alt<5>{\color{black} }{\color{gray}} The computation complexity of the algorithm is $O(pK)$.
+%\end{itemize}
+%
+%
+%\end{frame}
+
+\begin{frame}
+\frametitle{Determination of $K$ and $r_0$}
+{\small
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray}} Let $\widehat{\lambda}_k$ be the $k$th largest eigenvalue of $T^{-1}\bY\bY^{\T}$.
+\item<1- > \alt<1>{\color{black} }{\color{gray}}    Define the estimator of $K$ and $r_0$ by
+\begin{align*}
+\widehat{K}=\argmax_{1\le k<\min(p,T)}\frac{\widehat{\lambda}_{k}}{\widehat{\lambda}_{k+1}},\quad
+\widehat{r}_0=\argmax_{1\le k<\widehat{K}}\frac{\widehat{\lambda}_{k}}{\widehat{\lambda}_{k+1}}.
+\end{align*}
+%\item<1- > \alt<1>{\color{black} }{\color{gray}}  This is similar to those proposed by Lam and Yao (2012), Fan, Liao and Wang (2016). 
+\item<2- > \alt<2>{\color{black} }{\color{gray}} The consistency of $\widehat{K}$ and $\widehat{r}_0$ is given by
+\begin{theorem}
+Under Conditions 1 and 2,
+\begin{align*}
+\mathbb{P}(\widehat{K}=K)&\ge1-2\exp\left[-C_1\left\{\sqrt{\max(p,T)}-C_2\sqrt{\min(p,T)}\right\}^2\right],\nonumber\\
+\mathbb{P}(\widehat{r}_0=r_0)&\ge1-2\exp\left[-C_3\left\{\sqrt{\max(p,T)}-C_4\sqrt{\min(p,T)}\right\}^2\right],
+\end{align*}
+where $C_1, C_2, C_3$ and $C_4$ are positive constants.
+\end{theorem}
+\end{itemize}
+}
+\end{frame}
+
+%=========================== Theoretical Guarantees =======================================%
+\section{Theoretical Properties}
+\frame{\tableofcontents[currentsection]}
+%\begin{frame}[plain,noframenumbering]
+%\begin{spacing}{1.25}
+%\begin{center}
+%{\color{blue} \Huge  \bf Theoretical Properties}
+%\end{center}
+%\end{spacing}
+%\end{frame}
+
+\begin{frame}
+\frametitle{Conditions}\begin{spacing}{1.25}
+\begin{cd}[Condition 3]
+Let $\mathcal{F}_{-\infty}^0$ and $\mathcal{F}_T^{\infty}$ denote the $\sigma$-algebras generated by $\{(\bff_t,\bu_t):t\le0\}$ and $\{(\bff_t,\bu_t):t\ge T\}$, respectively. Define the mixing coefficient 
+$\alpha(T)=\sup_{A\in\mathcal{F}_{-\infty}^0,B\in\mathcal{F}_T^{\infty}}|\mathbb{P}(A)\mathbb{P}(B)-\mathbb{P}(A\cap B)|.$ The data are generated as follows.
+\begin{enumerate}
+\item \textit{Stationarity.} $\{\bu_t,\bff_t\}_{t\le T}$ is weak stationary; 
+\item \textit{Strong mixing.} There exist $q_1,C_1>0$ such that for any $s>0$,
+$\alpha(s)<\exp(-C_1s^{q_1});$
+\item \textit{Exponential tail.} There exist $q_2,q_3>1$ with $q_1^{-1}+q_2^{-1}+q_3^{-1}>1$ and $b_1,b_2>0$ such that for each $i=1,\ldots,p$, and any $s>0$, $\mathbb{P}(|u_{it}|>s)\le\exp\{-(s/b_1)^{q_2}\}$ and $\mathbb{P}(|f_{tk}|>s)\le\exp\{-(s/b_2)^{q_3}\}$.
+\end{enumerate}
+\end{cd}
+\end{spacing}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Upper Bound of Group Recovery}
+\begin{theorem}[Consistency of iGFM Algorithm]
+{\small Under Conditions 1, 2 and 3,
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray}} 
+Denoting $d_A^2=\min_j\lambda_{\min}(p^{-1}\bA_j^{\T}\bA_j)$ and $d_{B_j}^2=\lambda_{\min}(p^{-1}\bB_j^{\T}\bB_j)$, with probability at least $1-10e^{-s}$,
+$$\Vert\widehat{\bC}-\bC\Vert_{\max}\lesssim D_A\sqrt{r_0}d_B^{-1}(\min_jr_j)^{-1/2}(T^{-1/2}\sqrt{\log(p)}+p^{-1/2})s.$$
+
+\item<2- > \alt<2>{\color{black} }{\color{gray}}
+The clustering assignments estimator $\widehat{\bz}$ satisfy that,
+\begin{align*}
+\mathbb{E}\{L(\widehat{\bz},\bz)\}
+\le \frac{10\exp\{-(D_A\sqrt{r_0})^{-1}d_B\sqrt{\min_jr_j}\min_{b_{ik}\ne0}|b_{ik}|\}m\log(p)}{pT}.
+\end{align*}
+\end{itemize}
+}
+\end{theorem}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Minimax Optimality of Recovering Clusters}
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray}} 
+The signal-noise ratio $\theta$ can be written as
+\begin{align*}
+\theta=\frac{D_A^{-2}d_B^2\max_jr_j}{1+D_A^{-2}r_0^{-1}d_B^2\min_jr_j}:=\frac{\zeta_1}{1+\zeta_2},
+\end{align*}
+where $\zeta_1=D_A^{-2}d_B^2\max_jr_j$ and $\zeta_2=D_A^{-2}r_0^{-1}d_B^2\min_jr_j$.
+\begin{itemize} 
+\item<1- > \alt<1>{\color{black} }{\color{gray} } If $\theta=O(\log(p)mp^{-1}T^{-1})$, the minimax lower bound is lower bounded by a constant.
+\end{itemize}
+
+
+\item<2- > \alt<2>{\color{black} }{\color{gray}}
+The upper bound of group recovery can be written as
+\begin{align*}
+\frac{10\exp\{-\sqrt{\zeta_2}\min_{b_{ik}\ne0}|b_{ik}|\}m\log(p)}{pT}.
+\end{align*}
+\begin{itemize} 
+\item<2- > \alt<2>{\color{black} }{\color{gray} } If $\zeta_2\le  \zeta_2^*:=[\log\{(10m\log p)(pT)^{-1}\}]_+^2$, the upper bound is lower bounded by a constant.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Phase Transition}
+\begin{figure}[h!] 
+\centering
+\vspace{-.3cm}
+\resizebox{8.5cm}{!}{%
+\begin{tikzpicture}
+\draw[very  thick,->] (0,0) -- (9.5,0) node[anchor=north west] {$\zeta_1$};
+\draw[very thick,->] (0,0) -- (0,6) node[anchor=south east] {$\zeta_2$}; 
+
+\draw (1.05cm,2pt) node[above]{};
+
+\foreach \x/\xtext in {3.5}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt)  node[below] {$\displaystyle  \frac{m\log p}{pT}$};
+
+\foreach \y/\ytext in {1}
+    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east,rotate=0] {$\displaystyle  \zeta_{2}^*$};
+
+
+\fill[cyan!50, pattern color = gray, opacity=0.95, path picture={
+            \node[above,anchor=north,text width=3.5cm, text=black]  at (7.25,0.95) { Impossible Region 
+            $\zeta_1\geq  (1+\zeta_2)\displaystyle {m\log p}(pT)^{-1}$};}]  (3.5,0) -- (9,0) -- (9,2.5)  -- cycle;
+             
+\fill[yellow!60, pattern color=green, opacity=0.95,path picture={
+            \node[anchor=center,auto,text width=6.5cm, text=black] at (4.25,3) {\small Possible Region with Guarantees $\zeta_1\leq  (1+\zeta_2)\displaystyle \frac{m\log p}{pT}$ and $\displaystyle \zeta_2\geq \log^2\left(\frac{m\log p}{pT}\right)$};}]  (0,1) --  (5.7,1) -- (9,2.5) --(9,5) -- (0,5)  -- cycle;
+            
+            
+            
+\fill[yellow!20, pattern color=red ,  opacity=0.95,path picture={
+\node[anchor=south,text width=4cm, text=black]  at (2.25,0.125) {\small Possible Region with  Unknown Guarantees};}]  (0,0) --  (3.5,0) -- (5.7,1) -- (0,1)  -- cycle;
+
+
+\draw [line width=0.5mm, red, dashed ] (0,1) -- (5.7,1) ;    
+\draw [line width=0.5mm, red,dashed ] (3.5,0) -- (9,2.5) ;    
+\draw [line width=0.25mm, gray ] (0,5) -- (9,5) ;    
+\draw [line width=0.25mm, gray ] (9,0) -- (9,5) ;    
+
+\filldraw[red] (3.5,0) circle (2pt) node[anchor=west] {};
+ 
+\filldraw[red] (0,1) circle (2pt) node[anchor=west] {};
+ 
+\end{tikzpicture} 
+}
+\caption{\footnotesize Region for possibility and guarantee of estimating cluster assignments. It is possible to estimate cluster assignments if $\zeta_1/(1+\zeta_2)\le p^{-1}T^{-1}m\log(p)$ and guaranteed if $\zeta_2\ge  \zeta_2^*:=[\log\{(10m\log p)(pT)^{-1}\}]_+^2$ where $\zeta_1=D_A^{-2}d_B^2\max_jr_j$ and $\zeta_2=D_A^{-2}(\min_jr_j)^{-1}d_B^2r_0$.}
+\label{fig:theta}
+\end{figure}
+\end{frame}
+
+
+%=========================== Diverging m ======================================%
+\section{The Recovery of Divergent Number of Clusters}
+\frame{\tableofcontents[currentsection]}
+
+\begin{frame}
+\frametitle{Divergent Number of Clusters}
+We consider a $p$-dimensional multivariate time series $y_{it}$.
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{black} } $y_{it}$ is an observation from the $i$th subject at time $t$.
+\item<1- > \alt<1>{\color{black} }{\color{gray} } The $p$ dimensions are split into $m$ disjoint groups by clustering assignment $\bz=(z_1,\dots,z_p)\in\{1,\dots,m\}^p$ as $\mathcal{V}=\mathcal{V}^{(1)}\cup\dots\cup\mathcal{V}^{(m)}$.
+\begin{itemize}
+\item<2- > \alt<2>{\color{black} }{\color{gray} } The number of curves in the $j$th cluster $p_j=|\mathcal{V}^{(j)}|$ satisfy the following condition
+\begin{cd}[Condition 4]
+There exist constant $\gamma\in(0,1)$ such that $m\asymp p^{\gamma}$ and $p_j=|\mathcal{V}^{(j)}|\asymp p^{1-\gamma}$ for each $j=1,\dots,m$.
+\end{cd}
+\end{itemize}
+\item<3- > \alt<3>{\color{black} }{\color{black} }By allowing the number of groups to diverge, we enable the analysis to work for a large number of groups and a rather small number of curves.
+\begin{itemize}
+\item<4- > \alt<4>{\color{black} }{\color{gray} } We have a larger parameter space and more difficulty in estimating cluster assignments.
+\end{itemize}
+\item<4- > \alt<4>{\color{black} }{\color{gray} } The same algorithm of clustering recovery is applied.
+\end{itemize} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Identification Condition}
+\begin{cd}[Condition 5]
+\begin{enumerate}
+\item There exist positive constant $R$ such that $r_j\le R$ for each $j=0,1,\dots,m$.
+\item For each $j=1,\dots,m$, $\bA_j^{\T}\bA_j$ and $\bB_j^{\T}\bB_j$ are diagonal matrices with non-zero distinct entries and $\bA_j^{\T}\bB_j=\bm{0}$. There exist constants $d_1,d_2>0$ such that 
+\begin{itemize}
+\item $d_1\le\lambda_{\min}(p^{-1+\gamma}\bA_j^{\T}\bA_j)\le\lambda_{\max}(p^{-1+\gamma}\bA_j^{\T}\bA_j)\le d_2$;
+\item $d_1\le\lambda_{\min}(p^{-1+\gamma}\bB_j^{\T}\bB_j)\le\lambda_{\max}(p^{-1+\gamma}\bB_j^{\T}\bB_j)\le d_2$.
+\end{itemize}
+\end{enumerate}
+\end{cd}
+\pause
+\begin{itemize}
+\item<2- > \alt<2>{\color{black} }{\color{gray} } The total number of factors $K=\sum_{j=0}^mr_j\asymp m$.
+\item<2- > \alt<2>{\color{black} }{\color{gray} } The eigenvalues of loading matrix for each cluster is of order $p^{1-\gamma}$.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Minimax Lower Bound and Upper Bound}
+Minimax lower bound and upper bound of clustering recovery can be derived under new conditions.
+\begin{theorem}[Optimality of iGFM Algorithm For Divergent $m$]
+{\small
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{black} } 
+Under Conditions 4 and 5, we have
+\begin{align*}
+\inf_{\widehat{\bz}}\sup_{\bz\in\mathcal{Z},\bC\in\mathcal{C}}\mathbb{E}\{L(\widehat{\bz},\bz)\}\ge  \frac{\{\log^2(p/4)+\log^2(2)\}}{32\theta\log(p/4) p^{1-\gamma}T}\wedge\frac{1}{64},
+\end{align*}
+where the infimum is taken over all label estimators $\widehat{\bz}$.
+\item<2- > \alt<2>{\color{black} }{\color{gray} } 
+Under Conditions 3, 4 and 5, the clustering assignments estimator $\widehat{\bz}$ satisfy that
+\begin{align*}
+\mathbb{E}\{L(\widehat{\bz},\bz)\}
+\le \frac{10\exp\{-(D_A\sqrt{r_0})^{-1}d_B\sqrt{\min_jr_j}\min_{b_{ik}\ne0}|b_{ik}|\}\log(p)}{p^{1-\gamma}T}.
+\end{align*}
+\end{itemize}
+}
+\end{theorem}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Minimax Optimality of Recovering Clusters}
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray}} 
+We still let $\zeta_1=D_A^{-2}d_B^2\max_jr_j$ and $\zeta_2=D_A^{-2}r_0^{-1}d_B^2\min_jr_j$.
+\begin{itemize} 
+\item<1- > \alt<1>{\color{black} }{\color{gray} } If $\theta=O(\log(p)p^{-1+\gamma}T^{-1})$, the minimax lower bound is lower bounded by a constant.
+\end{itemize}
+
+
+\item<2- > \alt<2>{\color{black} }{\color{gray}}
+The upper bound of group recovery can be written as
+\begin{align*}
+\frac{10\exp\{-\sqrt{\zeta_2}\min_{b_{ik}\ne0}|b_{ik}|\}\log(p)}{p^{1-\gamma}T}.
+\end{align*}
+\begin{itemize} 
+\item<2- > \alt<2>{\color{black} }{\color{gray} } If $\zeta_2\le \zeta_{2}^{**}:= [\log\{(10\log p)(p^{1-\gamma}T)^{-1}\}]_+^2$, the upper bound is lower bounded by a constant.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Phase Transition of Optimal Recovery When $m$ Diverges}
+\begin{figure}[h!] 
+\centering
+\vspace{-.3cm}
+\resizebox{8.5cm}{!}{%
+\begin{tikzpicture}
+\draw[very  thick,->] (0,0) -- (9.5,0) node[anchor=north west] {$\zeta_1$};
+\draw[very thick,->] (0,0) -- (0,6) node[anchor=south east] {$\zeta_2$}; 
+
+\draw (1.05cm,2pt) node[above]{};
+
+
+
+\foreach \x/\xtext in {3.5}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt)  node[below] {$\displaystyle  \frac{m\log p}{pT}$};
+
+
+\foreach \x/\xtext in {5}
+\draw[shift={(\x,0)}] (0pt,2pt) -- (0pt,-2pt)  node[below] {$\displaystyle  \frac{\log p}{p^{1-\gamma}T}$};
+
+
+
+
+\foreach \y/\ytext in {1}
+    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east,rotate=0] {$\displaystyle  \zeta_{2}^*$};
+
+\foreach \y/\ytext in {2}
+    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east,rotate=0] {$\displaystyle \zeta_{2}^{**}$};
+    
+
+%\fill[cyan!50, pattern color = gray, opacity=0.45]  (3.5,0) -- (10.5,0) -- (10.5,6)  -- cycle;
+            
+
+\fill[magenta!20, pattern color = gray, opacity=0.95, path picture={
+            \node[above,anchor=north,text width=3.5cm, text=black]  at (8.5,2.15) { Impossible\\ Region\\ 
+            $\zeta_1\geq  (1+\zeta_2)\cdot$ \\ \qquad $\displaystyle \frac{\log p}{p^{1-\gamma}T}$};}]  (5,0) -- (9,0) -- (9,5)   -- cycle;            
+             
+\fill[yellow!60, pattern color=green, opacity=0.95,path picture={
+            \node[anchor=center,auto,text width=7cm, text=black] at (4,3.25) {\small Possible Region with Guarantees $\zeta_1\leq  (1+\zeta_2)\displaystyle \frac{\log p}{p^{1-\gamma}T}$ and $\displaystyle \zeta_2\geq \log^2\left(\frac{\log p}{p^{1-\gamma}T}\right)$};}]  (0,2) --  (6.6,2) -- (9,5) -- (0,5)  -- cycle;
+            
+            
+            
+\fill[yellow!20, pattern color=red ,  opacity=0.95,path picture={
+\node[anchor=south,text width=4cm, text=black]  at (3,0.6) {\small Possible Region with  Unknown Guarantees};}]  (0,0) --  (5,0) -- (6.6,2) -- (0,2)  -- cycle;
+
+
+
+\draw [line width=0.5mm, red, dashed ] (0,1) -- (5.7,1) ;    
+\draw [line width=0.5mm, red,dashed ] (3.5,0) -- (9,2.5) ;        
+
+\draw [line width=0.5mm, blue ] (0,2) -- (6.6,2) ;    
+\draw [line width=0.5mm, blue ] (5,0) -- (9,5) ;    
+
+\draw [line width=0.25mm, gray ] (0,5) -- (9,5) ;    
+\draw [line width=0.25mm, gray ] (9,0) -- (9,5) ;   
+
+\filldraw[red] (3.5,0) circle (2pt) node[anchor=west] {};
+ 
+\filldraw[red] (0,1) circle (2pt) node[anchor=west] {};
+ 
+\filldraw[blue] (5,0) circle (2pt) node[anchor=west] {};
+ 
+\filldraw[blue] (0,2) circle (2pt) node[anchor=west] {};
+ 
+\end{tikzpicture} 
+}
+\caption{\footnotesize Region for possibility and guarantee of estimating cluster assignments. In the case $m$ diverges, it is possible to estimate cluster assignments if $\zeta_1/(1+\zeta_2)\le p^{-1+\gamma}T^{-1}\log(p)$ and guaranteed if $\zeta_2\ge \zeta_{2}^{**}:= [\log\{(10\log p)(p^{1-\gamma}T)^{-1}\}]_+^2$ where $\zeta_1=D_A^{-2}d_B^2\max_jr_j$ and $\zeta_2=D_A^{-2}(\min_jr_j)^{-1}d_B^2r_0$.}
+\label{fig:theta1}
+\end{figure}
+\end{frame}
+
+%=========================== Simulation ======================================%
+\section{Numerical Studies}
+\frame{\tableofcontents[currentsection]}
+%\begin{frame}[plain,noframenumbering]
+%\begin{spacing}{1.25}
+%\begin{center}
+%{\color{blue} \Huge  \bf Numerical Studies}
+%\end{center}
+%\end{spacing}
+%\end{frame}
+
+\begin{frame}
+\frametitle{Integrative Group Factor Model}
+Considering $T$ replicates $(\by_1,\dots,\by_T):=\bY$, the model reads
+$$
+\bY=\bC\bF^{\T}+\bU,
+$$ 
+where
+\begin{align*}
+\bC=\begin{bmatrix}
+\bA_1 & \bB_1 & & \\
+\vdots & & \ddots & \\
+\bA_m & & & \bB_m
+\end{bmatrix},
+\end{align*} 
+\begin{itemize}
+\item $\bA_1,\dots,\bA_m$ are loadings of common factors.
+\item $\bB_1,\dots,\bB_m$ are loadings of unique factors.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Simulation Settings}
+\begin{spacing}{1.25} 
+\begin{itemize}
+\item For simulation studies, we consider
+\begin{itemize}
+\item $p=360$, 1080,  the number of subjects/times series;
+\item $T=50$, 150, 250, 350, 450, the number of time points;
+\item $m=3$, 6, the number of clusters
+
+\item loading settings:
+\begin{enumerate}
+\item Loading 1 (Balanced): $r_0=r_1=\dots=r_m=1$; for each $j=1,\dots,m$, $p_j$ is equally even, $\bA_j=0.8(1,-1,\dots,1,-1)^{\T}$, $\bB_1=\bm{1}_{p_1}+(1/p_1,1/p_1,2/p_1,2/p_1,\dots,1/2,1/2)$, and $\bB_j=\bm{1}_{p_j}$.
+\item Loading 2 (Unbalanced): $r_0=r_1=\dots=r_m=1$; for each $j=1,\dots,m$, $p_j$ is even and different from others, $\bA_j=0.8(1,-1,\dots,1,-1)^{\T}$, $\bB_1=\bm{1}_{p_1}+(1/p_1,1/p_1,2/p_1,2/p_1,\dots,1/2,1/2)$, and $\bB_j=\bm{1}_{p_j}$.
+\item Loading 3 (Multiple): $r_0=r_2=\dots=r_m=2$ and $r_1=3$; for each $j=1,\dots,m$, $p_j$ is equally even; the absolute value of elements in $\bB_j$ is greater than $0.6$.
+\end{enumerate}
+
+\end{itemize}
+\end{itemize}
+\end{spacing}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Simulation Settings}
+\begin{spacing}{1.25} 
+\begin{itemize}
+\item $p$-dimensional error process $\bu_t$ :
+\begin{enumerate}
+\item Model 1: $\bu_t$ follows $\mathcal{N}(\bm{0},\bI_p)$ and are independent in $t$.
+\item Model 2: $\bu_t$ follows ARMA$(1,1)$ with autoregressive coefficient $\rho=0.5$, moving average coefficient $\theta=0.5$, and $\mathcal{N}(\bm{0},\bI_p)$ innovation.
+\item Model 3: $\bu_t$ follows $\mathcal{N}(\bm{0},\bSigma_u)$ and are independent in $t$, where $\bSigma_u=\{\sigma_{ij}\}_{i,j=1}^p$ and $\sigma_{ij}=\exp(-5|i-j|)$ for each $i,j=1,\dots,p$.
+\end{enumerate}
+
+\item  Each univariate time $f_{tk}$ follows $\mathcal{N}(0,1)$ and are independent in $t$;
+
+\item For each setting, $200$ repeated simulations are conducted. 
+\end{itemize}
+\end{spacing}
+\end{frame}
+
+\begin{frame}
+\frametitle{Estimators for Comparison}
+\begin{itemize}
+\item We consider seven competing methods to demonstrate iGFM for clustering recovery.
+\begin{itemize}
+\item {\it K-means} algorithm;
+\item Hierarchical Clustering (HC) with Euclidean and maximum distance;
+\item Partitioning Clustering (PC) ;
+\item Spectral Clustering On Ratios-of-Eigenvectors (SCORE);
+\item COvariance Difference (COD);
+\item Penalized convex {\it K-means} (PECOK).
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Time Consuming}
+\begin{table}[ht]
+\centering
+\small
+\begin{tabular}{rrrrrrrrrr}
+  \hline
+p & T & iGFM & {\it K-means} & HC & PC  & COD & PECOK & SCORE  \\ 
+  \hline
+360 & 50 & 0.02 & 0.01 & 0.03 & 0.52 & 2.57 & 8.55 & 0.05\\ 
+360 & 450 & 0.23 & 0.03 & 0.34 & 2.47 & 3.23 & 10.55 & 0.08\\ 
+1080 & 50 & 0.08 & 0.07 & 0.28 & 1.69 & 35.11 & 3617 & 0.28\\ 
+   \hline
+\end{tabular}
+\caption{Time consuming (in seconds) of seven clustering recovery methods. Simulations are run using Interl Core i7-4700MQ CPU and 16 GB RAM installed memory.}
+\label{tab:time}
+\end{table}
+\begin{itemize}
+\item<2- > \alt<2>{\color{black} }{\color{gray}} IGFM is computationally efficient for high-dimensional data.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Recovery Accuracy for $m=3$ and independent $\bu_t$}
+\begin{figure}[!h]
+\begin{subfigure}{.4\textwidth}
+\hspace{-1cm}
+\includegraphics[scale=0.2]{plot/L1M1m3p360.pdf}
+\caption{Balanced}
+\end{subfigure}
+\begin{subfigure}{.4\textwidth}
+\centering
+\includegraphics[scale=0.2]{plot/L3M1m3p360.pdf}
+\caption{Multiple}
+\end{subfigure}
+\caption{\footnotesize Comparisons of the accuracy of clustering recovery by iGFM, {\it K-means}, HC with Euclidean and maximum distance, PC, SCORE, COD and PECOK.}
+\end{figure}
+\end{frame}
+
+\begin{frame}
+\frametitle{Recovery Accuracy for $m=6$ and independent $\bu_t$}
+\begin{figure}[!h]
+\begin{subfigure}{.4\textwidth}
+\hspace{-1cm}
+\includegraphics[scale=0.2]{plot/L1M1m6p360.pdf}
+\caption{Balanced}
+\end{subfigure}
+\begin{subfigure}{.4\textwidth}
+\centering
+\includegraphics[scale=0.2]{plot/L3M1m6p360.pdf}
+\caption{Multiple}
+\end{subfigure}
+\caption{\footnotesize Comparisons of the accuracy of clustering recovery by iGFM, {\it K-means}, HC with Euclidean and maximum distance, PC, SCORE, COD and PECOK.}
+\end{figure}
+\end{frame}
+
+%=========================== Real Data ======================================%
+
+\section{Real Data Analysis}
+\frame{\tableofcontents[currentsection]}
+%\begin{frame}[plain,noframenumbering]
+%\begin{spacing}{1.25}
+%\begin{center}
+%{\color{blue} \Huge  \bf Real Data Analysis}
+%\end{center}
+%\end{spacing}
+%\end{frame}
+
+
+\begin{frame}
+\frametitle{Multinational Macroeconomics Indices} 
+
+\begin{itemize}
+\item The dataset contains 10 quarterly macroeconomic indices of 30 countries from 1996.Q1 to 2019.Q4 for 98 quarters.
+\item 
+There are 10 covariates of interest
+\begin{itemize}
+\item total industry excluding construction, total manufacturing and GDP original series in production (P:TIEC, P:TM, GDP);
+\item CPI of food, CPI of energy and CPI in total in consumer price (CPI:Food, CPI:Ener,CPI:Tot);
+\item  long-term government bond yields and 3-month Interbank rates and yields in money market (IR:Long, IR:3-Mon);
+\item total exports value and total imports value in international trade (IT:Ex, IT:Im).
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Countries Included}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.8]{plot/allcountries.pdf}
+\caption{Countries included in the multinational macroeconomic indices dataset.}
+\end{figure} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Determining $r_0$, $K$ and $m$}
+We consider two sub-samples of the original data $\bY$, denoted as $\bY_1$ and $\bY_2$, each of size $T/2$.
+\begin{figure}[h!]
+\begin{subfigure}{.4\textwidth}
+%\centering
+%\hspace{-1.5cm}
+\includegraphics[scale=0.2]{plot/evratio.pdf}
+\caption{Training data}
+\end{subfigure}
+\begin{subfigure}{.4\textwidth}
+%\centering
+\includegraphics[scale=0.2]{plot/evratio2.pdf}
+\caption{Test data}
+\end{subfigure}
+\caption{Eigenvalue-ratios of of covariance matrix for transformed training data $\bY_1$ and test data $\bY_2$.}
+\end{figure} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Determining $r_0$, $K$ and $m$}
+\begin{itemize}
+\item<1- > \alt<1>{\color{black} }{\color{gray}}  We use the covariance matrices $\widehat{\bV}_1$ of $\bY_1$ and clustering assignment $\widehat{\bz}$ to predict covariance matrices $\widehat{\bV}_2$ of $\bY_2$, and report the prediction loss.
+\item<2- > \alt<2>{\color{black} }{\color{gray}}  The relative prediction loss is relative to the prediction loss of $\widehat{\bV}_2$ and $\widehat{\bz}$.
+\end{itemize}
+\begin{figure}[h!]
+\begin{subfigure}{0.4\textwidth}
+\centering
+\includegraphics[scale=0.2]{plot/predloss.pdf}
+\caption{Prediction loss}
+\end{subfigure}
+\begin{subfigure}{0.4\textwidth}
+\centering
+\includegraphics[scale=0.2]{plot/repredloss.pdf}
+\caption{Relative prediction loss}
+\end{subfigure}
+\caption{Comparison of iGFM, {\it K-means}, Hierarchical Clustering, Partitioning, SCORE, COD and PECOK.}
+\label{fig:predloss}
+\end{figure} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Estimated Latent Factors and Loading Matrix}
+\begin{figure}[h!]
+\vspace{-.5cm}
+\includegraphics[totalheight=3in,width=1.05\textwidth]{plot/loadingheat.pdf}
+\end{figure} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Clustering of 3-month Interbank Rates and Yields}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{plot/3mon_world.pdf}
+\end{figure} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Clustering of 3-month Interbank Rates and Yields}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{plot/3mon_europe.pdf}
+\end{figure} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Clustering of Long-term Government Bond Yields}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{plot/lt_world.pdf}
+\end{figure} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Clustering of Long-term Government Bond Yields}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.3]{plot/lt_europe.pdf}
+\end{figure} 
+\end{frame}
+
+
+%=========================== Summary ======================================%
+\section{Summary}
+\frame{\tableofcontents[currentsection]}
+%\begin{frame}[plain,noframenumbering]
+%\begin{spacing}{1.25}
+%\begin{center}
+%{\color{blue} \Huge  \bf Summary}
+%\end{center}
+%\end{spacing}
+%\end{frame}
+
+
+\begin{frame}
+\frametitle{Summary}
+\begin{itemize}
+\item What we have contributed?
+\begin{itemize}
+\item A flexible integrative group factor model built upon the latent factors extracted from the large scale data.
+\item A computationally fast algorithm to recover clustering assignments and gives its upper bound of clustering recovery rate.
+\item Show the minimax optimality of our proposed algorithm.
+\item Find the precise demarcation for the {\it Region of Possibility with Guarantees}, {\it Region of Possibility with unknown Guarantees} and {\it Region of Impossibility} in a two-dimensional phase space.
+\end{itemize}
+\pause
+\item Future Work
+\begin{itemize}
+\item Adopt factor model to detect the changing covariance/structure of high dimensional time series.
+\item Extend large dimensional factor model for count data with potentially growing number of subjects.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\begin{figure}[!ht]
+\centering
+\begin{tabular}{c}
+\includegraphics[scale=0.45]{thankyou.pdf}
+\end{tabular}
+\end{figure}
+\end{frame}
+
+
+
+\end{document}
+
+
