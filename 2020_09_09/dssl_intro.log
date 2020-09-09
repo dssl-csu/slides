@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  9 SEP 2020 12:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  9 SEP 2020 12:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1321,7 +1321,7 @@ thkerncmss.
 ) [3
 
 ]
-<f00.png, id=110, 890.5772pt x 604.50844pt>
+<f00.png, id=109, 890.5772pt x 604.50844pt>
 File: f00.png Graphic file (type png)
 <use f00.png>
 Package pdftex.def Info: f00.png  used on input line 220.
@@ -1329,7 +1329,7 @@ Package pdftex.def Info: f00.png  used on input line 220.
  [4
 
  <./f00.png>]
-<z3.png, id=137, 601.4972pt x 207.02344pt>
+<z3.png, id=136, 601.4972pt x 207.02344pt>
 File: z3.png Graphic file (type png)
 <use z3.png>
 Package pdftex.def Info: z3.png  used on input line 239.
@@ -1339,7 +1339,7 @@ Package pdftex.def Info: z3.png  used on input line 239.
  <./z3.png>] [6
 
 ]
-<f2.png, id=190, 562.35094pt x 210.03468pt>
+<f2.png, id=189, 562.35094pt x 210.03468pt>
 File: f2.png Graphic file (type png)
 <use f2.png>
 Package pdftex.def Info: f2.png  used on input line 270.
@@ -1352,7 +1352,7 @@ Overfull \hbox (16.0594pt too wide) in paragraph at lines 270--270
 [7
 
  <./f2.png>]
-<f3.png, id=218, 1133.73563pt x 844.65562pt>
+<f3.png, id=217, 1133.73563pt x 844.65562pt>
 File: f3.png Graphic file (type png)
 <use f3.png>
 Package pdftex.def Info: f3.png  used on input line 279.
@@ -1360,7 +1360,7 @@ Package pdftex.def Info: f3.png  used on input line 279.
  [8
 
  <./f3.png>]
-<f4.png, id=248, 1290.32062pt x 644.4075pt>
+<f4.png, id=247, 1290.32062pt x 644.4075pt>
 File: f4.png Graphic file (type png)
 <use f4.png>
 Package pdftex.def Info: f4.png  used on input line 291.
@@ -1373,7 +1373,7 @@ Overfull \hbox (8.8316pt too wide) in paragraph at lines 291--291
 [9
 
  <./f4.png>]
-<f5.png, id=275, 1573.37813pt x 928.97063pt>
+<f5.png, id=274, 1573.37813pt x 928.97063pt>
 File: f5.png Graphic file (type png)
 <use f5.png>
 Package pdftex.def Info: f5.png  used on input line 303.
@@ -1386,7 +1386,7 @@ Overfull \hbox (7.38017pt too wide) in paragraph at lines 303--303
 [10
 
  <./f5.png>]
-<f6.png, id=303, 1064.47687pt x 526.21594pt>
+<f6.png, id=302, 1064.47687pt x 526.21594pt>
 File: f6.png Graphic file (type png)
 <use f6.png>
 Package pdftex.def Info: f6.png  used on input line 312.
@@ -1399,7 +1399,7 @@ Overfull \hbox (12.05565pt too wide) in paragraph at lines 312--312
 [11
 
  <./f6.png>]
-<f7.png, id=330, 1559.8275pt x 691.08188pt>
+<f7.png, id=329, 1559.8275pt x 691.08188pt>
 File: f7.png Graphic file (type png)
 <use f7.png>
 Package pdftex.def Info: f7.png  used on input line 322.
@@ -1412,7 +1412,7 @@ Overfull \hbox (4.6701pt too wide) in paragraph at lines 322--322
 [12
 
  <./f7.png>]
-<f8.png, id=358, 1029.8475pt x 694.595pt>
+<f8.png, id=357, 1029.8475pt x 694.595pt>
 File: f8.png Graphic file (type png)
 <use f8.png>
 Package pdftex.def Info: f8.png  used on input line 330.
@@ -1420,7 +1420,7 @@ Package pdftex.def Info: f8.png  used on input line 330.
  [13
 
  <./f8.png>]
-<f9.png, id=387, 499.8675pt x 375.4025pt>
+<f9.png, id=386, 499.8675pt x 375.4025pt>
 File: f9.png Graphic file (type png)
 <use f9.png>
 Package pdftex.def Info: f9.png  used on input line 338.
@@ -1468,10 +1468,10 @@ Here is how much of TeX's memory you used:
 usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmss9.pfb></us
 r/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></u
 sr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on dssl_intro.pdf (15 pages, 2827480 bytes).
+Output written on dssl_intro.pdf (15 pages, 2825314 bytes).
 PDF statistics:
- 469 PDF objects out of 1000 (max. 8388607)
- 416 compressed objects within 5 object streams
+ 468 PDF objects out of 1000 (max. 8388607)
+ 415 compressed objects within 5 object streams
  31 named destinations out of 1000 (max. 500000)
  116 words of extra memory for PDF output out of 10000 (max. 10000000)
 
