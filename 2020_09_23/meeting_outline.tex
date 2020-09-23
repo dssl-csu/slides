@@ -1,0 +1,129 @@
+\documentclass[11pt]{article}
+
+%FOR SCRIBES: Please change the next three lines to reflect the correct
+%FOR SCRIBES: lecture number, name, and date.
+\newcommand{\lecturenumber}{1}
+\newcommand{\scribename}{Anne Nonymous}
+\newcommand{\lecturedate}{9/23/2020} 
+
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{url}
+\usepackage{graphicx}
+\usepackage{fullpage}
+\newcommand{\etal}{{\em et al.}}
+\newcommand{\qed}{\mbox{}\hspace*{\fill}\nolinebreak\mbox{$\rule{0.6em}{0.6em}$}}
+\newcommand{\expect}{{\bf \mbox{\bf E}}}
+\newcommand{\prob}{{\bf \mbox{\bf Pr}}}
+
+%--------------------------- Commands and Environments I added -----------------
+\usepackage[english]{babel}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\renewcommand{\baselinestretch}{1.10}
+%%      Fonts:
+%%---------------------------------------------------------------------------
+\newfont{\bssten}{cmssbx10}
+\newfont{\bssnine}{cmssbx10 scaled 900}
+\newfont{\bssdoz}{cmssbx10 scaled 1200}
+
+%---------------------------------------------------------------------------
+\newcounter{topic} \setcounter{topic}{0}
+\newcommand{\topic}[1]{\par \refstepcounter{topic} {\bssdoz \arabic{topic}.~ #1} \par}
+%\newcommand{\topic}[1]{\par \refstepcounter{topic} \vs{2ex} {\bssdoz \arabic{topic}.~ #1} \par \vs{1ex}}
+
+%------------------------------ end of new commands and evironments ------------
+
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\newcommand{\comment}[1]{{\color{gray}[\textsf{#1}]}}
+\newcommand{\redospace}{\small\renewcommand{\baselinestretch}{1.5}\normalsize}
+\newcommand{\undospace}{\small\renewcommand{\baselinestretch}{1}\normalsize}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+%----------------------------- some other things I added ---------------------
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{protocol}[theorem]{Protocol}
+%----------------------------------------------------------------------------
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{proposition}[theorem]{Proposition}
+\newenvironment{proof}{{\bf Proof:}}{$\qed$\par}
+\newenvironment{proofof}[1]{{\bf Proof of #1:}}{$\qed$\par}
+\newenvironment{proofsketch}{{\sc{Proof Outline:}}}{$\qed$\par}
+
+\usepackage{hyperref}
+\hypersetup{
+bookmarksnumbered
+}
+
+\begin{document}
+\begin{center}
+\framebox{\parbox{6.5in}{
+{\bf{DSSL@CSU, Fall 2020}}\\
+\url{https://dssl-csu.github.io/about}\\ Leading Discussants: Daniel Cooley
+ and Mantautas Rimkus, Colorado State University.\\\ \\
+{\bf Meeting \lecturenumber, \lecturedate. Scribed by Mantautas Rimkus.}
+}}
+\ \\
+\end{center}
+\setcounter{section}{\lecturenumber}
+%FOR SCRIBES: ---------- Begin Scribing Here ------------------------
+\begin{enumerate}
+\item Introduction (warm-up)
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=15cm]{0_u-AnjlGU9IxM5_Ju.png}
+    \caption{Neural Network}
+    \label{fig:Neural Network}
+\end{figure}
+
+\begin{itemize}
+    \item Is anyone in Club tried any of methods that provide insights for AI methods? 
+    \item The main idea: "We show that we can decompose the pre-activation prediction values into a linear combination of training point activations, with the weights corresponding to what we call representer values, which can be used to measure the importance of each training point has on the learned parameter of the model."
+    \item How you all understood this sentence: "a positive representer value indicates that a similarity to that training point is excitatory, while a negative representer value indicates that a similarity to that training point is inhibitory, to the prediction at the given test point".
+    \item I think the authors are claiming in paragraph 3 that their “richer understanding” comes from the fact that their representer points can take on positive and negative values.  Do other methods only return positive values?
+\end{itemize}
+\item Related Work:
+\begin{itemize}
+    \item Is anyone wants to share how much they are aware of the topic? Do anyone read any of these related works? 
+    \item Should the authors’ approach be lumped in with the second class:  sample-based methods?
+\end{itemize}
+\item Representer Point Framework:
+\begin{itemize}
+    \item Examples of activation function $\sigma$? 
+    \item Are these y vectors belonging to zero and one? Examples?
+    \item Explain me like I am five: what is the difference between $\Theta_1$ and big $\Theta_2$? 
+    \item Can we interpret theorem 3.1 conditions as we must have L-2 to be able apply this theorem? 
+    \item $\alpha_ij$ should have a large value, and $f_i^Tf_t$ should have a large value" What is large?
+\end{itemize}
+\item 3.1 Training as Interpretable Model
+\begin{itemize}
+    \item It states that: "We emphasize that imposing L2 weight decay is a common practice to avoid overfitting for deep neural networks, which does not sacrifice accuracy while achieving a more interpretable model." 
+\end{itemize}
+\item Pre-trained models
+\begin{itemize}
+\item In general, I did not understand motivation behind this subchapter. What would be a real world examples that would motivate it? I agree that this is confusing.  It seems to be talking about agreement with the activator function? 
+\item Figure1: why there are some points, that lays on left-top corner, or right-bottom (disagreements)?
+\end{itemize}
+\item Figure3 and Figure 4.
+\end{enumerate}
+
+%FOR SCRIBES: ---------- End Scribing, begin biblio -----------------
+%FOR SCRIBES: The first citation is just for telling you the style. Replace
+%FOR SCRIBES: this with your citations if any. If there are no citations, just
+%FOR SCRIBES: remove the bib environment.
+
+
+\bibliographystyle{plain}
+\begin{thebibliography}{10}
+\bibitem{mr:random}
+Yeh, C-K., Kim, J.S., Yen, I.E.H., and Ravikumar, P. (2018).
+\newblock {\em Representer Point Selection for Explaining Deep Neural Networks}. {\it NIPS}
+ \end{thebibliography}
+
+\end{document}
