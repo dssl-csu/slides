@@ -1,0 +1,10 @@
+---
+output: 
+  pdf_document:
+header-includes:
+   - \usepackage{pdfpages}
+      
+---
+
+\includepdf[pages=-]{rubin2005_notes_final.pdf}
+\includepdf[pages=-]{pearl1995_notes_final.pdf}
