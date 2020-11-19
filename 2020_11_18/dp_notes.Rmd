@@ -1,0 +1,45 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+# DSSL Reading Group: Differential Privacy 
+
+## Dwork 2009:
+1. What is differential privacy?
+    a. Definition is inherently symmetric, so bound is above and “below”
+    a. What are the attack vectors this is protecting against?
+    a. Function sensitivity is critical here: 
+        - Key: everything is a histogram
+    a. Alex’s crazy idea: just tell people you’re adding noise, but don’t do anything. How does this help us to understand the benefits / drawbacks of DP?
+        -  It obviously fails if K is public, but what if K could remain private? If people think there is noise that there isn’t, does that still guarantee privacy?
+1. What does or does not DP guarantee?
+    a. How does the guarantee in Definition 1 relate to intuitive notions of privacy?
+    a. Remark 2 on page 3?
+1. Laplacian noise example/theorem
+1. Examples from Dwork 2009
+    a. Boolean vectors
+        i. Complicated process just to get a conditional probability
+        i. “The number t is rather large”: There’s something odd here. With DP we limit the amount of information released in a query, and this forces us to make many queries to get useful information. So are our aims actually compatible?
+        i. Can we use a query that directly asks the conditional probability question? (or is it difficult to determine the sensitivity?).
+            - E.g. two “count” queries: count (A and B) and count(A)
+    a. Contingency table release
+        i. Add noise to the “full” contingency table
+            1. Non-integer
+            1. Possibly negative
+            1. Consistency in projections is immediate
+            1. Very low signal to noise ratio
+        i. Add noise to each sub-table independently
+            1. Possible inconsistencies between tables
+            1. Type mismatch (for method i as well) with downstream applications
+        i. Fourier Domain
+            1. Fourier transform of 2^k binary vectors
+            1. Fewer noise terms needed in some cases
+        i. Linear Programming & Rounding: 
+            1. Create a whole new dataset with marginals pretty close to the true marginals.
+    a. Learning Halfspaces
+
+## Papers
+Dwork 2009  
+Ruggles 2019: DP and the Census (interesting arguments both for and against the use of DP in the Census, non-technical)  
+Dong 2020: Gaussian DP  
